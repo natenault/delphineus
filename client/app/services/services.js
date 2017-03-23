@@ -249,9 +249,41 @@ angular.module('hackSource.services', [])
     });
   };
 
-  return {
-    getAllResources: getAllResources
+  var getAllCats = function () {
+    return $http({
+      method: 'GET',
+      url: '/api/categories'
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
   };
+
+  return {
+    getAllResources: getAllResources,
+    getAllCats: getAllCats
+  };
+})
+.factory('Filters', function() {
+
+  var currentCat = '';
+
+  var getCurrentCat = function() {
+    return currentCat;
+  };
+
+  var updateCurrentCat = function(category) {
+    currentCat = category;
+    // console.log(currentCat);
+    return currentCat;
+  };
+
+  return {
+    currentCat: currentCat,
+    getCurrentCat: getCurrentCat,
+    updateCurrentCat: updateCurrentCat
+  };
+
 })
 .factory('counter', function() {
   var count = 0;
