@@ -1,8 +1,9 @@
 <div ng-controller='cardsCtrl'>
+  {{selectedCat}}
   <md-card
     md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}"
     md-theme-watch
-    ng-repeat='resource in data | orderBy:sortType:sortReverse'>
+    ng-repeat='resource in data | orderBy:sortType:sortReverse | filterByCat:selectedCat'>
     <md-card-title>
       <md-card-title-text>
         <span class="md-headline">{{resource.title}}</span>
@@ -12,7 +13,7 @@
       <img src={{resource.imgUrl}} width='300' height='150'>
       {{resource.summary}}
       <hr>
-      {{resource.createdAt}}
+      {{resource.createdAt | date:'MMMM dd, yyyy'}}
       <my-vote></my-vote>
     </md-card-content>
   </md-card>
