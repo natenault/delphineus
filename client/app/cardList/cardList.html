@@ -1,16 +1,29 @@
 <div ng-controller="cardListCtrl">
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <md-button ng-click="sortBy('Likes.length')">POPULARITY
-        <span ng-show="sortType == 'Likes.length' && sortReverse" class="fa fa-caret-down"></span>
-        <span ng-show="sortType == 'Likes.length' && !sortReverse" class="fa fa-caret-up"></span>
-      </md-button>
-      <md-button ng-click="sortBy('createdAt')">
-        MOST RECENT
-        <span ng-show="sortType == 'createdAt' && sortReverse" class="fa fa-caret-down"></span>
-        <span ng-show="sortType == 'createdAt' && !sortReverse" class="fa fa-caret-up"></span>
-      </md-button>
-    </div>
-  </md-toolbar>
+  <div layout="row">
+   <p>{{selectedCat}}</p>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+<!--         <md-input-container>
+          <label>Category</label>
+          <md-select ng-model="selectedCat">
+            <md-option
+              ng-value="category.title"
+              ng-repeat="category in categories">
+                {{ category.title }}
+              </md-option>
+          </md-select>
+        </md-input-container> -->
+        <md-button ng-click="sortBy('Likes.length')">POPULARITY
+          <span ng-show="sortType == 'Likes.length' && sortReverse" class="fa fa-caret-down"></span>
+          <span ng-show="sortType == 'Likes.length' && !sortReverse" class="fa fa-caret-up"></span>
+        </md-button>
+        <md-button ng-click="sortBy('createdAt')">
+          MOST RECENT
+          <span ng-show="sortType == 'createdAt' && sortReverse" class="fa fa-caret-down"></span>
+          <span ng-show="sortType == 'createdAt' && !sortReverse" class="fa fa-caret-up"></span>
+        </md-button>
+      </div>
+    </md-toolbar>
+  </div>
   <my-card></my-card>
 </div>
