@@ -3,6 +3,7 @@ angular.module('hackSource', [
   'hackSource.services',
   'hackSource.cards',
   'hackSource.cardList',
+  'hackSource.categoryLinks',
   'hackSource.vote'
 ])
 .run(function() {
