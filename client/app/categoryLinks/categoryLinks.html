@@ -1,0 +1,5 @@
+<md-list ng-controller="CatLinksCtrl">
+  <md-list-item ng-repeat="category in categories">
+    <md-button ng-click="changeCat(category.title)">{{category.title}}</md-button>
+  </md-list-item>
+</md-list>
